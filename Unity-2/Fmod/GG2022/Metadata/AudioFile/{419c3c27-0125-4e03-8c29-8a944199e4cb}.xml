@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{419c3c27-0125-4e03-8c29-8a944199e4cb}">
+		<property name="assetPath">
+			<value>007_SFX_Checkpoint.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.59999999999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b3876e4d-c213-40f4-bf18-f597d3f86748}</destination>
+		</relationship>
+	</object>
+</objects>

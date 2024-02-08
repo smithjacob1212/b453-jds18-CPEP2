@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e96dc860-c724-40be-a874-7e44c856e3b5}">
+		<property name="assetPath">
+			<value>007_EndGameLoop.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>76.799999999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b3876e4d-c213-40f4-bf18-f597d3f86748}</destination>
+		</relationship>
+	</object>
+</objects>
