@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Experimental.Rendering.Universal;
 using FMODUnity;
 [RequireComponent(typeof(Animator))]
 public class CheckPoint : MonoBehaviour
 {
     public bool activated = false;
-    private UnityEngine.Rendering.Universal.Light2D light;
+    private Light2D light;
     private Animator animator;
     public StudioEventEmitter checkpointSound;
 
     private void Start()
     {
-        light = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        light = GetComponent<Light2D>();
         animator = GetComponent<Animator>();
         checkpointSound = GetComponent<StudioEventEmitter>();
         UnActivateCheckPoint();

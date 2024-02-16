@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEngine.UI;
 using MilkShake;
-
+using UnityEngine.Experimental.Rendering.Universal;
 using FMODUnity;
 
 [RequireComponent(typeof(CharacterController2D))]
 [RequireComponent(typeof(PingPongColor))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(PlayerDeath))]
-[RequireComponent(typeof(UnityEngine.Rendering.Universal.Light2D))]
+[RequireComponent(typeof(Light2D))]
 public class PlayerController : MonoBehaviour
 {
     public ColorEnum color = ColorEnum.black;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public int colorIndex = 0;
     public int previousColorIndex = 0;
     public bool hasNotUnlockColor = true, hasUnlockPink = false, hasUnlockCyan = false, hasUnlockYellow = false;
-    private UnityEngine.Rendering.Universal.Light2D light2D;
+    private Light2D light2D;
     public PingPongColor pingPongColor;
     public Animator animator;
     public float dashSpeed = 1f;
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(switchColor.EventReference);
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
-        if (light2D == null) light2D = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        if (light2D == null) light2D = GetComponent<Light2D>();
         colorIndex = 1;
         controller.SetLayerWeight(previousColorIndex, colorIndex, 1);
         this.color = ColorEnum.cyan;
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(switchColor.EventReference);
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
-        if (light2D == null) light2D = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        if (light2D == null) light2D = GetComponent<Light2D>();
         colorIndex = 0;
         controller.SetLayerWeight(previousColorIndex, colorIndex, 1);
         this.color = ColorEnum.pink;
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(switchColor.EventReference);
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
-        if (light2D == null) light2D = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        if (light2D == null) light2D = GetComponent<Light2D>();
         colorIndex = 2;
         controller.SetLayerWeight(previousColorIndex, colorIndex, 1);
         this.color = ColorEnum.orange;
@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         pingPongColor = GetComponent<PingPongColor>();
         playerDeath = GetComponent<PlayerDeath>();
-        light2D = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        light2D = GetComponent<Light2D>();
         if (hasNotUnlockColor)
         {
             controller.SetLayerWeight(previousColorIndex, 3, 1);
@@ -320,5 +320,6 @@ public enum ColorEnum
     cyan,
     orange,
     black,
-    white
+    white,
+    green
 }

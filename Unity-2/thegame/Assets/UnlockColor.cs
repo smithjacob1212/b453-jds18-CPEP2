@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Experimental.Rendering.Universal;
 using FMODUnity;
 
 [RequireComponent(typeof(Collider2D))]
@@ -11,13 +11,13 @@ public class UnlockColor : MonoBehaviour
     public ColorEnum colorToUnlock = ColorEnum.pink;
     private Collider2D col2D;
     public ParticleSystem particles;
-    private UnityEngine.Rendering.Universal.Light2D light;
+    private Light2D light;
     public StudioEventEmitter pickup;
     private void Start()
     {
         col2D = GetComponent<Collider2D>();
         col2D = GetComponent<Collider2D>();
-        light = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        light = GetComponent<Light2D>();
         pickup = GetComponent<StudioEventEmitter>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
