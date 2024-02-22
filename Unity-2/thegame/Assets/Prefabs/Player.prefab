@@ -238,6 +238,10 @@ MonoBehaviour:
   black: {r: 1, g: 1, b: 1, a: 1}
   white: {r: 0, g: 0, b: 0, a: 1}
   orange: {r: 1, g: 0.38341936, b: 0, a: 1}
+  colorCoolDown:
+    pinkCooldownTime: 3
+    cyanCooldownTime: 3
+    orangeCooldownTime: 3
 --- !u!114 &1600446223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,8 +286,6 @@ MonoBehaviour:
   m_OnOtherPlayer: 0
   isMoving: 0
   isFlipping: 0
-  isJumping: 0
-  doNotCheckGround: 0.1
   t_doNotCheckGround: 0
   OnLandEvent:
     m_PersistentCalls:

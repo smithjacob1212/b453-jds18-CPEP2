@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Color pink,cyan,black, white, orange;
 
+    [SerializeField] private ColorCoolDown colorCoolDown; // Calls the color cooldown script
+
     private void SwitchColorSprite(ColorEnum color)
     {
        switch (color)
@@ -76,6 +78,8 @@ public class PlayerController : MonoBehaviour
     }
     private void SwitchToCyan()
     {
+        if (colorCoolDown.IsCyanCoolingDown) return; // If the color cyan is still cooling down, then the player cannot switch
+
         RuntimeManager.PlayOneShot(switchColor.EventReference);
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
         if (light2D == null) light2D = GetComponent<Light2D>();
@@ -84,9 +88,13 @@ public class PlayerController : MonoBehaviour
         this.color = ColorEnum.cyan;
         sprite.sprite = cyanSprite;
         light2D.color = cyan;
+
+        colorCoolDown.StartCyanCoolDown(); // Starts the cooldown for the color cyan
     }
     private void SwitchToPink()
     {
+        if (colorCoolDown.IsPinkCoolingDown) return; // If the color pink is still cooling down, then the player cannot switch
+
         RuntimeManager.PlayOneShot(switchColor.EventReference);
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
         if (light2D == null) light2D = GetComponent<Light2D>();
@@ -95,10 +103,13 @@ public class PlayerController : MonoBehaviour
         this.color = ColorEnum.pink;
         sprite.sprite = pinkSprite;
         light2D.color = pink;
-    }
 
+        colorCoolDown.StartPinkCoolDown(); // Starts the cooldown for the color pink
+    }
     private void SwitchToYellow()
     {
+        if (colorCoolDown.IsOrangeCoolingDown) return; // If the color Orange is still cooling down, then the player cannot switch
+
         RuntimeManager.PlayOneShot(switchColor.EventReference);
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
         if (light2D == null) light2D = GetComponent<Light2D>();
@@ -107,6 +118,8 @@ public class PlayerController : MonoBehaviour
         this.color = ColorEnum.orange;
         sprite.sprite = orangeSprite;
         light2D.color = orange;
+
+        colorCoolDown.StartOrangeCoolDown(); // Starts the cooldown for the color orange
     }
 
 
