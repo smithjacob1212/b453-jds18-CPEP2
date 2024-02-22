@@ -13,9 +13,9 @@ public class RandomTurret : MonoBehaviour
     public Collider2D playerDetection;
     public Animator animator;
     public Transform playerTransform;
-    public GameObject pinkShot;
-    public GameObject cyanShot;
-    public GameObject orangeShot;
+    public GameObject pinkShot; // Uses the gameobject pinkshot
+    public GameObject cyanShot; // Uses the gameobject cyanshot
+    public GameObject orangeShot; // Uses the gameobject orangeshot
     public float shotCooldown = 2f;
     public float t_shotCooldown = 0f;
     public StudioEventEmitter shoot;
@@ -63,7 +63,7 @@ public class RandomTurret : MonoBehaviour
 
     private void Shoot()
     {
-        float randomColor = UnityEngine.Random.Range(1, 4);
+        float randomColor = UnityEngine.Random.Range(1, 4); // Randomly chooses a number to pick between the different color shots
 
         if (randomColor == 1)
         {
@@ -76,7 +76,7 @@ public class RandomTurret : MonoBehaviour
             if (t_shotCooldown >= shotCooldown)
             {
                 RuntimeManager.PlayOneShot(shoot.EventReference);
-                GameObject s = Instantiate(pinkShot, spawner.position, spawner.rotation, null);
+                GameObject s = Instantiate(pinkShot, spawner.position, spawner.rotation, null); // Spawns the pink shot
                 s.GetComponent<Shot>().SetVelocity(s.transform.right);
                 t_shotCooldown = 0f;
             }
@@ -93,7 +93,7 @@ public class RandomTurret : MonoBehaviour
             if (t_shotCooldown >= shotCooldown)
             {
                 RuntimeManager.PlayOneShot(shoot.EventReference);
-                GameObject s = Instantiate(cyanShot, spawner.position, spawner.rotation, null);
+                GameObject s = Instantiate(cyanShot, spawner.position, spawner.rotation, null); // Spawns the cyan shot
                 s.GetComponent<Shot>().SetVelocity(s.transform.right);
                 t_shotCooldown = 0f;
             }
@@ -110,7 +110,7 @@ public class RandomTurret : MonoBehaviour
             if (t_shotCooldown >= shotCooldown)
             {
                 RuntimeManager.PlayOneShot(shoot.EventReference);
-                GameObject s = Instantiate(orangeShot, spawner.position, spawner.rotation, null);
+                GameObject s = Instantiate(orangeShot, spawner.position, spawner.rotation, null); // Spawns the orange shot
                 s.GetComponent<Shot>().SetVelocity(s.transform.right);
                 t_shotCooldown = 0f;
             }
